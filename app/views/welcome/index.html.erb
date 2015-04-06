@@ -1,0 +1,23 @@
+<h1>Bantam E-Market</h1>
+
+
+<% if user_signed_in? %>
+	<p>Welcome, <%= current_user.email %> </p>
+	<p><%= link_to "View Posts", posts_path %></p>
+	<p><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
+
+<% else %>
+<h2>Sign In</h2>
+		<p>Please Login or Sign Up to Continue</p>
+		<%= form_for("user", :url => user_session_path) do |f| %>
+		<p> Email</p>
+		<p><%= f.text_field :email %></p>
+		<p> Password </p>
+		<p><%= f.password_field :password %></p>
+	  	<p><%= f.check_box :remember_me %>
+	  	<%= f.label :remember_me %></p>
+	  	<p><%= f.submit 'Sign in' %></p>
+	  	<p><%= link_to "Forgot your password?", new_password_path('user') %></p>
+	  	<p><%= link_to "Sign Up", new_user_registration_path %></p>
+		<% end %>
+<% end %>

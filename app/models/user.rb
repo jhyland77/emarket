@@ -8,4 +8,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+
+  validates :email,format:{
+  	with: %r{\@(trincoll.edu)\Z}i,
+  	message: 'Must be a @trincoll.edu email'
+  }
 end

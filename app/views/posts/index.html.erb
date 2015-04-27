@@ -42,8 +42,10 @@
                     <td><%= number_to_currency(post.price) %></td>
                     <td><%= post.contact %></td>
                     <td><%= link_to 'Show', post, class: 'btn btn-mini btn-success' %></td>
-                    <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-mini btn-warning' %></td>
-                    <td><%= link_to 'Destroy', post, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+                    <% if current_user == post.user %>
+                        <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-mini btn-warning' %></td>
+                        <td><%= link_to 'Destroy', post, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+                    <% end %>
                   </tr>
                 <% end %>
             </tbody>
@@ -52,6 +54,7 @@
 </div>
 <br />
 
+<%= will_paginate @posts %>
 
 <%= link_to 'New Post', new_post_path, class: 'btn btn-lg btn-info' %>
 

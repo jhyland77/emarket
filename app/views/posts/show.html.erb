@@ -37,6 +37,7 @@
   <!--<%= link_to @post.image.url, @post.image.url %>-->
 <%end%>
 
-
+<% if current_user == @post.user %>
 <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-mini btn-info' %> |
+<% end %>
 <%= link_to 'Back', posts_path, class: 'btn btn-mini btn-warning' %>

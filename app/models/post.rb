@@ -13,6 +13,8 @@ class Post < ActiveRecord::Base
 
   validates :name, :contact, :price, :itemtype, :status, :presence => true
 
+  belongs_to :user, inverse_of: :posts
+
 def self.search(search)
   if search
     where('name LIKE ?', "%#{search}%")

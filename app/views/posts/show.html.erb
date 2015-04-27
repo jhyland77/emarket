@@ -27,7 +27,7 @@
 </p>
 
 <% if @post.image? %>
-  <%= image_tag @post.image.url %>
+  <%= image_tag @post.image.url(:thumb) %>
   <br />
   <!--<%= link_to @post.image.url, @post.image.url %>-->
 <%end%>

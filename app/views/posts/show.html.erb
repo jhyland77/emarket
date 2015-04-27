@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Status:</b>
+  <%= @post.status %>
+</p>
+
+<p>
   <b>Name:</b>
   <%= @post.name %>
 </p>
@@ -17,7 +22,7 @@
 
 <p>
   <b>Price:</b>
-  <%= @post.price %>
+  <%= number_to_currency(@post.price) %>
 </p>
 
 
@@ -27,11 +32,11 @@
 </p>
 
 <% if @post.image? %>
-  <%= image_tag @post.image.url %>
+  <%= image_tag @post.image.url(:thumb) %>
   <br />
   <!--<%= link_to @post.image.url, @post.image.url %>-->
 <%end%>
 
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-mini btn-info' %> |
+<%= link_to 'Back', posts_path, class: 'btn btn-mini btn-warning' %>

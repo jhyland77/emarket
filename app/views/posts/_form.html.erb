@@ -11,19 +11,27 @@
     </div>
   <% end %>
 
+<div class="field">
+    <%= f.label :status %>
+    <%= f.select(:status, options_for_select([['For Sale', 'For Sale'], ['To Buy', 'To Buy']]))  %><br />
+    
+  </div>
+
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %><br />
   </div>
+
   <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description %><br />
   </div>
+
   <div class="field">
     <%= f.label :itemtype %>
     <%= f.select(:itemtype, options_for_select([['Book', 'Book'], ['Electronics', 'Electronics'], ['Furniture', 'Furniture'], ['Other', 'Other']]), { include_blank: true})  %><br />
-    
   </div>
+
   <div class="field">
     <%= f.label :price %>
     <%= f.text_field :price %><br />
@@ -40,6 +48,6 @@
 <br />
 
 <div class="actions">
-    <%= f.submit class: 'btn btn-medium btn-success' %>
+    <%= f.submit class: 'btn btn-lg btn-success' %>
 </div>
 <% end %>

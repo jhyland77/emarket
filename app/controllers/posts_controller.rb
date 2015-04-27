@@ -6,6 +6,26 @@ class PostsController < ApplicationController
 
   def index
     #@posts = Post.all 
+    #@posts = Post.order(sort_column + " " + sort_direction)
+    @posts = Post.search(params[:search]).order(sort_column + " " + sort_direction)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+    end
+  end
+
+  def buyIndex
+    #@posts = Post.all 
+    @posts = Post.order(sort_column + " " + sort_direction)
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @posts }
+      end
+  end
+
+  def sellIndex
+    #@posts = Post.all 
     @posts = Post.order(sort_column + " " + sort_direction)
 
     respond_to do |format|

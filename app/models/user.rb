@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many  :posts, dependent: :destroy
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
@@ -13,4 +15,7 @@ class User < ActiveRecord::Base
   	with: %r{\@(trincoll.edu)\Z}i,
   	message: 'Must be a @trincoll.edu email'
   }
+
+
+
 end

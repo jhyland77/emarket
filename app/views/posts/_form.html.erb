@@ -12,32 +12,34 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br />
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :description %>
+    <%= f.text_area :description %><br />
   </div>
   <div class="field">
-    <%= f.label :itemtype %><br />
-    <%= f.text_field :itemtype %>
+    <%= f.label :itemtype %>
+    <%= f.select(:itemtype, options_for_select([['Book', 'Book'], ['Electronics', 'Electronics'], ['Furniture', 'Furniture'], ['Other', 'Other']]), { include_blank: true})  %><br />
+    
   </div>
   <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
+    <%= f.label :price %>
+    <%= f.text_field :price %><br />
   </div>
   <div class="field">
-    <%= f.label :contact %><br />
-    <%= f.text_field :contact %>
+    <%= f.label :contact %>
+    <%= f.text_field :contact %><br />
   </div>
 
 <div class="field">
-  <%= f.label :image %><br />
-  <%= f.file_field :image %>
+  <%= f.label :image %>
+  <%= f.file_field :image %><br />
 </div>
+<br />
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="actions">
+    <%= f.submit class: 'btn btn-medium btn-success' %>
+</div>
 <% end %>

@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
+
+  helper_method :sort_column, :sort_direction
+
   def index
-    @posts = Post.all 
+    #@posts = Post.all 
+    @posts = Post.order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +84,13 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def sort_column
+    Post.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
 end

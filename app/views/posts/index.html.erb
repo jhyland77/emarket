@@ -1,14 +1,14 @@
-<h1>Listing posts</h1>
+<h1>Listing Posts</h1>
 
 <div class="media">
     <div class="media-body">
         <table class="table table-hover">
             <thead>
               <tr>
-                <th>Name</th>
+                <th><%= sortable "name" %></th>
                 <th>Description</th>
-                <th>Item Type</th>
-                <th>Price ($)</th>
+                <th><%= sortable "itemtype", "Item Type" %></th>
+                <th><%= sortable "price", "Price ($)" %></th>
                 <th>Contact</th>
                 <th></th>
                 <th></th>

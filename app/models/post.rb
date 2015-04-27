@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
 
 def self.search(search)
   if search
-    where('name LIKE ?', "%#{search}%")
+    where('name LIKE ? OR description LIKE ? OR itemtype LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
   else
     scoped
   end

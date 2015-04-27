@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20150427151035) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "status_type"
     t.string   "status"
   end
 

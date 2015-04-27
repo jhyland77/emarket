@@ -1,4 +1,7 @@
-<h1>Listing Posts</h1>
+
+
+<h1 align="center">All Posts</h1>
+
 
 <%= form_tag posts_path, :method => 'get', :id => "posts_search" do %>
   <p>
@@ -8,11 +11,16 @@
   
 <% end %>
 
+
+
+<body class="container">
+
 <div class="media">
     <div class="media-body">
-        <table class="table table-hover">
+        <table class="table table-hovered">
             <thead>
               <tr>
+                <th><%= sortable "status" %></th>
                 <th><%= sortable "name" %></th>
                 <th>Description</th>
                 <th><%= sortable "itemtype", "Item Type" %></th>
@@ -27,13 +35,14 @@
             <tbody>
                 <% @posts.each do |post| %>
                   <tr>
+                    <td><%= post.status %></td>
                     <td><%= post.name %></td>
                     <td><%= post.description %></td>
                     <td><%= post.itemtype %></td>
-                    <td><%= post.price %></td>
+                    <td><%= number_to_currency(post.price) %></td>
                     <td><%= post.contact %></td>
-                    <td><%= link_to 'Show', post, class: 'btn btn-mini' %></td>
-                    <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-mini btn-success' %></td>
+                    <td><%= link_to 'Show', post, class: 'btn btn-mini btn-success' %></td>
+                    <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-mini btn-warning' %></td>
                     <td><%= link_to 'Destroy', post, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
                   </tr>
                 <% end %>
@@ -44,6 +53,7 @@
 <br />
 
 
+<%= link_to 'New Post', new_post_path, class: 'btn btn-lg btn-info' %>
 
-<%= link_to 'New Post', new_post_path %>
+
 

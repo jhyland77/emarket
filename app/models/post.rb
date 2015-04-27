@@ -11,6 +11,8 @@ class Post < ActiveRecord::Base
 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  validates :name, :contact, :price, :itemtype, :status, :presence => true
+
 def self.search(search)
   if search
     where('name LIKE ?', "%#{search}%")

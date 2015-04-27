@@ -13,7 +13,7 @@
 
 <div class="field">
     <%= f.label :status %>
-    <%= f.select(:status, options_for_select([['For Sale', 'For Sale'], ['To Buy', 'To Buy']]))  %><br />
+    <%= f.select(:status, options_for_select([['For Sale', 'For Sale'], ['To Buy', 'To Buy']]), {include_blank: true})  %><br />
     
   </div>
 
